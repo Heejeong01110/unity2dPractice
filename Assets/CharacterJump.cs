@@ -10,6 +10,9 @@ public class CharacterJump : MonoBehaviour
     int jumpCount = 0;
     int limitJumpCount = 2;
 
+    public AudioSource audioSource;
+    public AudioClip clip;
+
     // Update is called once per frame
     void Update()
     {
@@ -19,24 +22,20 @@ public class CharacterJump : MonoBehaviour
                 rigid.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
             }
         }
-        /*
-        if(isGrounded == true && Input.GetKeyDown(KeyCode.UpArrow)){
-            isGrounded = false;
-        }
-        */
     }
 
-    public void OnTriggerEnter2D(Collider2D other) {
-        /*
-        if(other.gameObject.tag== "ground"){
-            isGrounded = true;
-            jumpCount = 0;
-        }
-        */
-
+    private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "ground")
         {
             jumpCount = 0;
+        }else if(other.gameObject.tag == "enemy"){
+            EnemySaurus enemy = other.gameObject.GetComponent<EnemySaurus>();
+            enemy.OnDamage();
+
+            rigid.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+            audioSource.clip = clip;
+            audioSource.volume = SoundManager.I.Volume;
+            audioSource.Play();
         }
 
     }
