@@ -39,8 +39,12 @@
      <Compile Include="Assets\rtan.cs" />
      <Compile Include="Assets\CharacterJump.cs" />
      <Compile Include="Assets\CharacterMove.cs" />
-     <Compile Include="Assets\EnemySaurus.cs" />
      <Compile Include="Assets\CharacterDamage.cs" />
+     <Compile Include="Assets\EnemySaurus.cs" />
+     <Compile Include="Assets\GameManager.cs" />
+     <Compile Include="Assets\Goal.cs" />
+     <Compile Include="Assets\Coin.cs" />
+     <Compile Include="Assets\SoundManager.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
